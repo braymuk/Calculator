@@ -20,7 +20,7 @@ body{
     display:flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(36, 36, 36);
+    background-color: rgb(39, 39, 39);
     height:500px;
     width:100%;
     border-radius: 15px;
@@ -46,15 +46,12 @@ body{
     grid-template-rows: repeat(5,1fr);
     width:90%;
     height:69%;
-
-    
-    
 }
 
 .button {
     font-size: 18pt;
     border-radius:20px;
-    background-color: rgb(121, 121, 121);
+    background-color: rgb(107, 107, 107);
     grid-column: auto;
     grid-row: auto;
     height:85%;
@@ -65,7 +62,11 @@ body{
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
     box-shadow: rgba(0, 0, 0, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    
+    user-select: none;
+}
+
+.button:hover {
+    background-color: rgb(145, 145, 145);
 }
 
 #footer {
