@@ -38,6 +38,7 @@ let inputNumA;
 let inputNumB;
 let currentInput;
 let operatorInput = '';
+let oldOperator = '';
 let operatorActive = false;
 
 const history = document.querySelector('#history');
@@ -58,18 +59,27 @@ equal.addEventListener('click', ()=> {
 const operators = document.querySelectorAll('.operator');
 operators.forEach((operator)=> {
     operator.addEventListener('click', ()=> {
-        if(inputNumA !=undefined && inputNumB != undefined) {
-            solution.textContent = operate(operatorInput, inputNumA, inputNumB);
-        }
-        operatorInput = operator.textContent;
+        oldOperator = operatorInput;
         if(inputNumA != undefined) {
             inputNumB = solution.textContent;
             operatorActive = false;
+            console.log("saved B");
             //operate(operatorInput, inputNumA, inputNumB);
         } else {
+            console.log("saved A");
             inputNumA = solution.textContent;
             operatorActive = true;
         }
+      
+        if(inputNumA && inputNumB) {
+            console.log("flag");
+            solution.textContent = operate(oldOperator, inputNumA, inputNumB);
+            inputNumA = solution.textContent;
+            inputNumB = undefined;
+            operatorActive = true;
+        }
+        operatorInput = operator.textContent;
+        
 
         
     });
