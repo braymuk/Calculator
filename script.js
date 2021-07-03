@@ -15,6 +15,9 @@ function divide(a,b) {
 }
 
 function operate(operator, a, b) {
+    if(b == 0) {
+        return "Nice try...";
+    }
     switch(operator) {
         case '+':
             return add(a,b);
@@ -32,6 +35,13 @@ function operate(operator, a, b) {
         default:
             return 0;
     }
+}
+
+function killInput() {
+    solution.textContent = "";
+    inputNumA = undefined;     
+    inputNumB = undefined;     
+    operatorInput = undefined;
 }
 
 let inputNumA;
@@ -101,12 +111,11 @@ numbers.forEach((number)=> {
     });
 });
 
+
+
 const ac = document.querySelectorAll('.clear');
 ac.forEach((c)=> {
     c.addEventListener('click', ()=> {
-        solution.textContent = "";
-        inputNumA = undefined;     
-        inputNumB = undefined;     
-        operatorInput = undefined;
+        killInput();
     });
 });
